@@ -1,0 +1,29 @@
+
+EX-1>
+const add=(...num:number[])=>{--note-1
+    return num.reduce((curResult,curValue)=>{
+        return curResult+curValue;
+    },0)
+}
+const addedNumbers = add(1,2,3);--note-2
+console.log(addedNumbers)
+
+note-1->here it an take n number of parameter
+        nothing but array of parameter
+        type is number[]
+
+note-2->we can pass n number of parameter of type number
+
+EX-2>-----here we can take only 3 parameter of type no------
+
+const add=(...num:[number,number,number])=>{--note-1
+    return num.reduce((curResult,curValue)=>{
+        return curResult+curValue;
+    },0)
+}
+const addedNumbers = add(1,2,3);--note-2
+console.log(addedNumbers)
+
+note-1->3parameter of type number
+
+note-2->we can't pass parameter more then three

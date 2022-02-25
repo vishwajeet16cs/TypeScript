@@ -1,0 +1,22 @@
+>function define using type
+
+type AddFn =(a:number,b:number)=>number
+
+let add:AddFn;
+
+add=(n1:number,n2:number)=>{
+    return n1+n2
+}
+
+
+> function define by interface
+
+EX-2>-- interface define type of function
+
+interface AddFn{
+    (a:number,b:number):number
+}
+let add:AddFn
+add=(n1:number,n2:number)=>{
+    return n1+n2
+}

@@ -1,0 +1,16 @@
+
+EX-1>long syntext we are repeating variable 
+class employee{
+    private id:string;
+    private name:string;
+
+    constructor(id:String,n:String){
+        this.id=id;
+        this.name=n;
+    }
+    
+}
+
+above code we are initalizeing the thing twice
+    1st out side of constructor 
+    2nd inside constructor

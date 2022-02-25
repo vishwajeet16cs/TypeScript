@@ -1,0 +1,1 @@
+to install tsConfig.json--> npx tsc --init

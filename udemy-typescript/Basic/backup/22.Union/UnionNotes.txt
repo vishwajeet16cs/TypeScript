@@ -1,0 +1,47 @@
+
+
+//here we want to combine two num and other hand we want to combine two string
+we cant pass string becayse variable type in number here 
+
+EX-1
+function combine(input1:number,input2:number){
+    const result=input1+input2;
+        return result;
+}
+const combinedAges = combine(30,26)
+console.log(combinedAges)
+
+const combineNAme = combine("vishwajeet","kumar")//erro
+
+
+EX-2---------------
+function combine(input1:number|string,input2:number|string){
+    const result=input1+input2;//error notes--1
+        return result;
+}
+const combinedAges = combine(30,26)
+console.log(combinedAges)
+
+const combineNAme = combine("vishwajeet","kumar")
+
+notes-1-->Operator '+' cannot be applied to types 'string | number' and 'string | number
+
+
+
+EX_3>--Above all proble can be over come by using union as bello
+
+function combine(input1:number|string,input2:number|string){
+    let result
+    if(typeof input1==="number"&& typeof input2==="number"){
+        result=input1+input2;
+    } 
+    else{
+        result=input1.toString()+input2.toString()
+    }
+    return result;
+}
+const combinedAges = combine(30,26)
+console.log(combinedAges)
+
+const combineNAme = combine("vishwajeet","kumar")
+console.log(combineNAme)

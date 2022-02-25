@@ -1,0 +1,40 @@
+
+
+EX-1>
+
+interface Named{
+    readonly name:string;
+}
+
+
+interface Greetable{
+    greet(phrase:string):void;
+}
+
+class Person implements Greetable,Named{// we are passing tow inter face
+    name:string;
+    age=30
+    constructor(n:string){
+        this.name=n;
+    } 
+
+    greet(phrase:string){
+        console.log(phrase+' '+this.name)
+    }
+}
+
+
+interface can inharite other inharitence Properties
+
+EX-1>
+
+interface Named{
+    readonly name:string;
+}
+
+
+interface Greetable extends Named{
+    greet(phrase:string):void;
+}
+
+and Greetable only can emplemant to class which need both props

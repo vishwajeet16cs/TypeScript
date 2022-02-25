@@ -1,0 +1,184 @@
+>this is the solution for singal file 
+tsc app.ts -watch
+or
+tsc app.ts --w
+
+>for comp project watch mode setup
+    step 1> tsc --init
+        create tscofig.json file
+
+    step 2> run command (tsc)
+        it will run all the file in that dir
+        tsc -watch >continuasly run all the file in that dir
+
+
+--------------36.including and excluding File--------------------------
+
+>add at the end of tsconfig.json file
+>"exclude":[
+    "analytics.ts",
+    "*.dev.ts",
+    "**/*.dev.ts"
+]
+
+now every tsc file in the dir will run except analytics.ts
+because we have exclude it in tsconfig.json file at the bottom
+
+*.dev.ts--> it will exclude all file which end with .div.ts
+
+**/*.div.tsc--> any file in any folder will be ignore
+
+------include file for compilation-------------
+
+"include": [
+    "app.ts",
+    "analytic.ts"
+  ]
+ all file will be mantion in the array which we want to compile
+
+
+----------37. Setting a Compilation Target-------------
+
+in tscnfig.json
+we can set which version of advance js we want our js file cofig
+
+-------------38. Understanding TypeScript Core Libs-----------------
+
+"lib": []-- if we activate with empty array 
+        it will give error for (button,document,addEventListener etc)
+
+const button = document.querySelector("button")!;
+
+button.addEventListener("click",()=>{
+    console.log("Clicked!")
+})
+
+//"lib": []--> if it is not activated by default every this is allowed
+
+>"lib": [
+      "dom",
+      "es6",
+      "DOM.iterable",
+      "Scripthost"
+    ],
+    above code will activate all feature 
+    of html and es6
+
+---------40. Working with Source Maps-------------
+
+
+while debugging code in crome source - we can only see js file for debugging 
+if we enable "sourcemaps" it will now we can se ts file and also debug it in sorce(console) 
+
+
+---------------41. rootDir and outDir----------------
+
+here we can specify o/p file (ts-js) js file will stored in the file we specify
+
+
+"outDir": "./dist", 
+
+by keeping all ts file in src folder 
+if we enable this config will we sotred in dist folder
+
+dis folder structur will follow the src or folder where ts file is keept
+
+
+rootdir:--
+if we specify root dir ("rootDir": "./src")
+type script will not look to other folder
+
+removeComments:-- if it enable 
+            then commentd line ts file will not reflect in js file 
+            app.ts----//hello
+                    console.log("hello")
+            appt.js---
+                    console.log("hello")
+
+noEmit-- enable
+        it will not create O/P file (js)
+
+
+noEmitOnError:- by default it is false 
+            but if it is true
+            then in case there es error in or ts file
+            it will not generate js file
+            if it is false it will generate
+
+
+--------------43. Strict Compilation------------------
+
+Strict: true// it enable all option unde it
+
+if we want enable to particular option then set 
+Strict:false 
+and uncomment which we want
+
+or 
+Strict:true
+-under this other option is by default false 
+-to enable particular option make it as true
+    and start using it
+enable other option 
+
+
+-----------44. Code Quality Options---------------
+
+--------------------------------------
+"noUnusedLocals": true, (if enable)
+----------------------
+function message(){
+    let data:number=10
+}
+
+give error when we are declaring variable and not using it any where (in local scope)
+ not applicable to glbal variable
+
+-------------------------------
+"noUnusedParameters": true,
+------------------------------
+same goes for unuse parameter if we declare we have to use it
+
+
+--------------------------
+"noImplicitReturns": true, //enabel
+-----------------------------
+EX-1> this function some time return value and some time not
+
+function add(n1:number,n2:number){
+    if(n1+n2>0){
+        return n1+n2
+    }
+}
+
+throw error 
+
+
+EX-2>it can we over come by writing return which doesn't return any thing
+
+function add(n1:number,n2:number){
+    if(n1+n2>0){
+        return n1+n2
+    }
+    return
+}
+
+
+
+-----------------------45. Debugging with Visual Studio Code------------------
+
+step-1 install crome debugerc in crome show we cab debug code in vscode only
+(5. Debugging with Visual Studio Code)
+
+step-2 enable sourceMap:true --> for debug the ts code
+
+Useful Resources & Links
+Attached you find all the code snapshots for this module - you also find them attached to individual lectures throughout this module.
+
+These links might also be interesting:
+
+tsconfig Docs: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+Compiler Config Docs: https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
+VS Code TS Debugging: https://code.visualstudio.com/docs/typescript/typescript-debugging

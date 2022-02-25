@@ -1,0 +1,63 @@
+Litral-- it not only hold type of the value but hold exact value over there
+        - resultConversion:"as-number"|"as-text"// here we are specifing specific value of veriable
+
+EX-1
+
+/* 
+    Union
+*/
+
+function combine(
+    input1:number|string,
+    input2:number|string,
+    resultConversion:string){
+    let result:string|number
+    if(typeof input1==="number"&& typeof input2==="number"){
+        result=input1+input2;
+    } 
+    else{
+        result=input1.toString()+input2.toString()
+    }
+    if(resultConversion==="as-number"){
+        return +result;
+    }else{
+        result.toString()
+    }
+}
+const combinedAges = combine(30,26,"as-number")
+console.log(combinedAges)//56-number
+
+const combinedStringAges = combine("30","26","as-number")
+console.log(combinedStringAges)//3026-number
+
+const combineNAme = combine("vishwajeet","kumar","as-string")
+console.log(combineNAme)//
+
+
+EX-2>
+
+/* 
+    Union
+*/
+
+function combine(
+    input1:number|string,
+    input2:number|string,
+    resultConversion:string){
+    let result:string|number
+    if(typeof input1==="number"&& typeof input2==="number"||resultConversion==="as-number"){
+        result= +input1 + +input2;
+    } 
+    else{
+        result=input1.toString()+input2.toString()
+    }
+    return result;
+}
+const combinedAges = combine(30,26,"as-number")
+console.log(combinedAges)//56
+
+const combinedStringAges = combine("30","26","as-number")
+console.log(combinedStringAges)//56
+
+const combineName = combine("vishwajeet","kumar","as-string")
+console.log(combineName)//vishwajeet kumar

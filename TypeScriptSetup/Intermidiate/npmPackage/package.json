@@ -1,0 +1,19 @@
+{
+  "name": "npmpackage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib",
+  "types": "lib",
+  "scripts": {
+    "start":"npx ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "palind": "^1.0.1"
+  }
+}

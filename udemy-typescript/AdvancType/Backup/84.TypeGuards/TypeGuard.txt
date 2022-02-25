@@ -1,0 +1,121 @@
+>if(typeof a==='string' || typeof b==='string)
+>this is type guards extra confermation before using it
+
+Type guard:- idea or approch of checking if certain method or props exist 
+        before using it
+
+        for object we use "in" or "instanceof"
+        EX-
+        if(vehicle instanceof Truck)
+        instanceof will not work with(type and interface) because it is the instance of js
+        EX-
+        if("loadCargo" in vehicle)
+        for other "==="
+        EX-
+        name==="string"
+
+EX-1>---------------------simple checking type of string num,boolean etc----------------------
+type Admin={
+    name:string;
+    privileges:string[];
+};
+
+type Employee={
+    name:string;
+    startDate:Date;
+};
+
+type Combinable= string|number;
+type Numeric =number|boolean;
+type Universal = Combinable & Numeric
+
+function add(a:Combinable,b:Combinable){
+    if(typeof a==='string' || typeof b==='string'){//ype guards
+        return a.toString() + b.toString()
+    }
+    return a+b;
+}
+    >if(typeof a==='string' || typeof b==='string)
+    >this is type guards extra confermation before using it
+
+
+---------------------------------------------------------------------
+
+EX-2>
+type Admin={
+    name:string;
+    privileges:string[];
+};
+
+type Employee={
+    name:string;
+    startDate:Date;
+};
+
+
+type unknownEmploy=Employee|Admin;
+
+function printEmployeeInformation(emp:unknownEmploy){
+    console.log("Name :",emp.name)
+    // console.log("privileges :",emp.privileges)
+}
+
+-------------------------------------------------------
+
+EX-3> we have two class with one comman metthod drive()
+
+ class Car{
+     drive(){
+         console.log("Driving.....");
+     }
+ }
+ class Truck{
+     drive(){
+         console.log("Drive a truck")
+     }
+     loadCargo(amount:number){
+         console.log("loading cargo ..."+amount)
+     }
+ }
+
+type Vehicle= Car| Truck;//-note-1>
+
+const v1=new Car();
+const v2=new Truck();
+
+function useVehicle(vehicle:Vehicle){
+    vehicle.drive()//no problem because prop is in both class
+    // if("loadCargo" in vehicle)//note-2>
+    if(vehicle instanceof Truck)
+    {
+        vehicle.loadCargo(1000)
+    }
+}
+
+useVehicle(v1)
+useVehicle(v2)
+
+
+note-1>type Vehicle= Car| Truck;
+        - Vehicle contain both the prop
+         here drive() is there in both car and truck
+         but loadCargo() is only there in truck
+
+         Vehicle is sure about drive() but not sure about loadCargo()
+         which mite cause problem
+         so we use Type guards for extra seftey
+
+            -if("loadCargo" in vehicle)
+            -if(vehicle instanceof Truck)
+
+note-2> by these two way we can aplly type guard
+        both is the part of js code not ts code
+        -if("loadCargo" in vehicle)
+        -if(vehicle instanceof Truck)
+
+Notes-> here we are using class to specify the type 
+        because interface and type is not the part of js 
+            - hence we can't use 
+            -if("loadCargo" in vehicle)
+            -if(vehicle instanceof Truck)
+

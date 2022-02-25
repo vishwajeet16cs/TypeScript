@@ -1,0 +1,14 @@
+we have seen if function doen't return any thing 
+and if be do console it give erro 
+
+but bellow function throw an error
+and not return any thing if be console the function 
+we will not gate any value
+
+function generteError(message:string, code:number):never{
+    throw ({message,errorcode:code});
+}
+
+const error=generteError("An error Occure!",500)
+console.log(error)//it will not return undefine 
+// this function will never return any value so it type is never

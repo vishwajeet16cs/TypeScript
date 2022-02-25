@@ -1,0 +1,108 @@
+ ReF=>  https://nestjs.com/
+
+
+//in nodejs terminal code of ts which is similar to js can be compile
+ but if we include ts feature it throw error
+    EX- console.log("hello")// it is simple node js code writen in ts file can
+    be executed
+    EX- const name:string="vishwajeet"// this include ts feature so it will throw an erroe
+
+
+tsc --init
+//changes in config file
+    target:es2018,
+    moduleResolution:node -it tell how file and diff module work together
+    outDir:"./dist"
+    rootDir:"./src"
+
+
+//installation we need
+npm i --save express body-parser
+
+//development dependency
+npm install --save-dev nodemon
+
+-------------------192. Finished Setup & Working with Types (in Node + Express Apps)----------------
+
+const express = require("express");//
+    -in ts require will give error because it is not there in ts 
+
+to over come ts not undersatnd nodejs need to run these command 
+    -npm install --save-dev @types/node
+    -this command will all the type of nodejs in our project
+   
+
+   -------------------------------------------
+   const express = require("express");
+
+    const app=express();
+
+    app.listen(3000)
+    -------------------------------
+    -here type of app is any
+    - to over come this we need to install express type
+
+    - to install express type
+    -npm install --save-dev @types/express
+
+    -but still app type is any 
+    -need to cahnge the pattern of import here in ts
+
+    const express = require("express");
+        replace by
+    import express from "express"
+
+    -now the type of express is express
+
+>in package.json file -start: "nodemon dist/app.js"
+    this setting run app.js in run mode using (npm start) command
+
+------------------193. Adding Middleware & Types-------------------------
+
+adding rout 
+
+EX-1>rodos.ts
+
+import { Router } from "express";
+//const express = require("express");
+//const Router= express.Router
+
+const router = Router();
+
+ router.post("/");
+ 
+ router.get("/");
+ 
+ router.patch("/:id");
+ 
+ router.delete("/:id");
+
+ export default router
+
+ Notes:- way of import and export is diff here 
+        befor ->export module.export=name
+        now ->export default router
+
+EX-2>aap.ts<server Expressapp>
+
+import express,{Request,Response,NextFunction}from 'express'
+import todoRoutes from "./routes/todos"
+
+const app=express();
+
+//to connect running express application
+app.use("/todos",todoRoutes)//req targetting diff url will not hendal
+
+//Error handleing middleware
+app.use((error:Error,req:Request,res:Response,next:NextFunction)=>{
+    res.status(500).json({message:error.message})
+})//error handeling middleware
+
+
+Notes-
+        -import express,{Request,Response,NextFunction}from 'express'
+            destructuring of feq,res.next
+        
+        -in Error middleware
+        -app.use((error:Error,req:Request,res:Response,next:NextFunction)
+        - define the type of diff midil ware

@@ -1,0 +1,28 @@
+Enum- for human readable formate
+    emum {NEW,OLD}
+    Added by TS: Automatically enumerated global constant identifiers
+
+const person={
+    name:"Vishwajeet",
+    age:30,
+    hobbies:["sports","cooking"],
+    role:"Read only"
+};
+
+if(person.role==="Read-only"){
+    console.log("is read only")
+}
+
+here it is har to remember what is rhe value of role
+in obj pertion may cause problem in larger code 
+it can be over come by Enum
+
+----------------------------------------
+// if we dont want to start enum variable value with 0
+
+// enum Role{ADMIN=5,Read_ONLY,AUTHOR};
+
+// now ADMIN=5 Read_oNLY=6, And AUTHOR=7
+
+we can also assigne any value to all the identifiers
+----------------------------------------

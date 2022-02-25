@@ -1,0 +1,34 @@
+class Department{
+    name:string;
+    private employees:string[]=[];
+    constructor(n:string){
+        this.name=n;
+    }
+    describe(){
+        console.log(this.name)
+    }
+    addEmployee(employee:string){
+        this.employees.push(employee);
+    }
+    printEmployeeInformetion(){
+        console.log(this.employees.length)
+        console.log(this.employees)
+    }
+}
+
+const accounting = new Department("vishwajeet");
+
+// accounting.describe();
+accounting.addEmployee("vishwajeet")
+accounting.addEmployee("amarjeet")
+
+
+
+>this code will work with js because js dont know access modifier
+    only ts understand it
+
+// accounting.employees[2]="raju"// after making prop private we cant use this method
+// accounting.employees[5]="raju"//error in ts
+
+accounting.describe();
+accounting.printEmployeeInformetion();

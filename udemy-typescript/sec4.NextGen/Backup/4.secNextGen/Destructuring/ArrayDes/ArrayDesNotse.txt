@@ -1,0 +1,21 @@
+const hobbies =["Sports","Cooking"];
+const activeHobbies=["Hiking"]
+const gym=["pushup","running","liftin"]
+
+/* 
+const hobby1 = hobbies[0]
+const hobby2 = hobbies[1] 
+
+    - this is also a wey to store value of array in variable 
+      but it is defecult
+*/
+
+//destructuring
+const [hobby1,hobby2,...remainingHobbies]=hobbies;--note-1
+
+console.log("hobbies-",hobbies,hobby1,hobby2,remainingHobbies)
+
+note-1-> hobby1 & hobby2 store the value of index 0 & 1
+        remainingHobbies -remaining value of array is store in it
+
+

@@ -1,0 +1,22 @@
+if some thing is private in a class then for making it accessable out
+side of the class we use getter and setter method
+
+for creating getter use "get key word"
+
+class Account extends Department{
+
+private lastReport: string;
+  
+get mostRecentReport() {
+    if (this.lastReport) {
+    return this.lastReport;
+    }
+    throw new Error('No report found.');
+}
+}
+
+const accounting = new Account()
+accounting.mostRecentReport//error because no report is added
+
+//after adding report ="hello morning"
+accounting.mostRecentReport//Something went wrong...

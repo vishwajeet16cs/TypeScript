@@ -1,0 +1,7 @@
+/* 
+    Symbol in TypeScript
+    what is Symbol
+    Make a program with symbol
+    Use Symbol as key of object
+    use symbol as function of class
+*/

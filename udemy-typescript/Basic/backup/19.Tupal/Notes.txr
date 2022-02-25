@@ -1,0 +1,18 @@
+ role:[number,string]// tupal to initialize variable type by indexing
+
+ const person:{
+     role:[number,string] 
+ }={
+     role:[2,"auther"]
+ }
+
+
+error
+1> person.role[1]=10//Type 'number' is not assignable to type 'string
+
+no erroe
+2> person.role.push("admin");// pusing data is allow in ts
+
+
+erro
+3> person.role=[3,"Admin","user"]//Type 'number' is not assignable to type 'string

@@ -1,0 +1,25 @@
+class Department{
+    name:string;
+    constructor(n:string){
+        this.name=n;
+    }
+    describe(){
+        console.log(this.name)
+    }
+}
+
+const accounting = new Department("vishwajeet");
+
+
+const accountingCopy={describe:accounting.describe}
+accounting()
+
+
+
+const accountingCopy={
+    name:"raju",
+    describe:accounting.describe};
+accountingCopy.describe()// raju
+
+here this refer to current object accountingCopy.describe
+refer to accountingCopy obj so if name is not there it will give error

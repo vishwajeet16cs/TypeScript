@@ -1,0 +1,49 @@
+class Department{
+    private employees:string[]=[];
+    public firstName="Hello"
+    constructor(private readonly id: string,public name:string){
+        name=name;
+        id=id;
+    }
+    describe(){
+        console.log(`Department (${this.id}):${this.name}`)
+    }
+    addEmployee(employee:string){
+        // this.id="12"//cnat assigne new value because it is read only
+        this.employees.push(employee);
+    }
+    printEmployeeInformetion(){
+        console.log(this.employees.length)
+        console.log(this.employees)
+    }
+}
+
+class ItDepartment extends Department{
+    constructor(id:string){
+        super(id,"vishwajeet")//-notes-1
+    }
+    
+}
+
+notes-1>it will call constructor of base class from inside sub class
+        > take two parameter as parent constructor
+        >need to call super before calling this key word
+
+
+-----------------------75. Readonly Interface Properties--------------------------------
+
+
+>in inter face we can add "readonly" modifier
+>other modifier is not all (public,private,protected)
+
+
+EX-1>
+interface Greetable{
+    readonly name:string;
+    age?:number;
+
+    greet(phrase:string):void;
+}
+
+
+

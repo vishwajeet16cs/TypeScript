@@ -1,0 +1,56 @@
+// intre face code will not reflect in js code 
+
+>optional method and props
+
+EX-1>
+interface Named{
+    readonly name:string;
+    outputNAme?:string
+    myMethod?(){-}
+}
+
+
+
+
+interface AddFn{
+    (a:number,b:number):number
+}
+let add:AddFn
+add=(n1:number,n2:number)=>{
+    return n1+n2
+}
+
+
+interface Greetable {
+    name?:string;
+    greet(phrase:string):void;
+}
+
+class Person implements Greetable{
+    name?:string;
+    age=30
+    constructor(n?:string){
+        this.name=n;
+    } 
+
+    greet(phrase:string){
+        console.log(phrase+' '+this.name)
+    }
+}
+
+const newPerson =new Person("vishwajeet")
+const newPerso =new Person()
+newPerson.greet("this is hello")
+
+
+>now name is optional we can pass or not pass in constructor
+
+
+Useful Resources & Links
+Attached you find all the code snapshots for this module - you also find them attached to individual lectures throughout this module.
+
+These links might also be interesting:
+
+More on (JS) Classes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+More on TS Interfaces: https://www.typescriptlang.org/docs/handbook/2/objects.html
